@@ -1,6 +1,6 @@
 @font-face {
   font-family: "bl";
-  src: url(fonts/bl.woff)
+  src: url("fonts/bl.woff")
 }
 
 html, body {
