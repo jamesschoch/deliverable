@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>title</title>
+  <link rel="stylesheet" href="stylesheet.css" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+  <script src="jeelizFaceFilter.js"></script>
+  <script src="Canvas2DDisplay.js"></script>
+  </head>
+  <body onload="main()">
+<canvas width="600" height="600" id='jeeFaceFilterCanvas'></canvas>
+
+    <div class="document">
+      <div class="a1">
+      <span class="bl t1">SEPTAGRAM</span>
+    </div>
+  </div>
+
+
+
+
+  <script type="text/javascript">
+
+var opac;
+var temp;
+  function main(){
+let CVD = null; // return of Canvas2DDisplay
+
+JEEFACEFILTERAPI.init({
+ canvasId: 'jeeFaceFilterCanvas',
+ NNCPath: 'neuralNets/', // root of NN_DEFAULT.json file
+ callbackReady: function(errCode, spec){
+   if (errCode){
+     console.log('AN ERROR HAPPENS. SORRY BRO :( . ERR =', errCode);
+     return;
+   }
+
+   console.log('INFO: JEEFACEFILTERAPI IS READY');
+   CVD = JeelizCanvas2DHelper(spec);
+   CVD.ctx.strokeStyle = 'yellow';
+ },
+
+ // called at each render iteration (drawing loop):
+ callbackTrack: function(detectState){
+   if (detectState.detected>0.6){
+     temp = detectState.s;
+     temp = temp * 100;
+     temp = 100 - temp;
+     temp = (temp - 50) * (temp / 50);
+     if (temp <= 0){
+       temp = 0;
+     }
+     window.opac = temp;
+  } else {
+    window.opac = 100;
+  }
+ }
+});
+
+
+
+setInterval(function () {
+  console.log(opac)
+        $(".a1").css("filter","blur(" + opac + "px)");
+   }, 50);
+
+
+
+
+
+} //end main()
+
+  </script>
+  </body>
+</html>
