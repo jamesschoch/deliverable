@@ -6,7 +6,7 @@
 html, body {
   padding: 0;
   margin: 0;
-
+  background-color: rga(0, 0, 0, 0);
 }
 
 .document {
@@ -29,8 +29,32 @@ html, body {
 .a1 {
   transition: 0.1s ease;
   opacity: 0;
+  display: none;
 }
 
 #jeeFaceFilterCanvas {
   display: none;
+}
+
+.svganim {
+  display: inline-block;
+  margin: -80px -100px;
+}
+
+.a2 {
+  text-align: center;
+}
+
+
+.svganim {
+  filter: invert();
+}
+
+#renderer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -10;
 }
