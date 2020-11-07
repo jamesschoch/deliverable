@@ -46,8 +46,8 @@
     </div>
 
     <script type="text/javascript">
-            var timetochange = 1500;
-            /*
+      var timetochange = 1500;
+      /*
                     function main(){
                   let CVD = null; // return of Canvas2DDisplay
 
@@ -101,7 +101,7 @@
 
                   */
 
-            /*
+      /*
                         var inputPrompt = prompt("Please enter a string.", "parhelia");
                         var inputPrompt = inputPrompt.toLowerCase();
                         var inputPromptChars = [];
@@ -225,94 +225,82 @@
                         });
 
                   */
-            var enableRotate = 0;
-            window.enableRotate = 0;
+      var enableRotate = 0;
+      window.enableRotate = 0;
 
-            SS.main.main();
+      SS.main.main();
 
-            var track_number = 0;
-            var sound = new Howl({
-              src: [
-                "audio/01.mp3"
-              ],
-              autoplay: false,
-              preload: true,
-              loop: false,
-              volume: 1,
-              onend: function() {
-                var sound = new Howl({
-                  src: [
-                    "audio/02.mp3"
-                  ],
-                  autoplay: false,
-                  preload: true,
-                  loop: false,
-                  volume: 1,
-                  onend: function() {
-                    var sound = new Howl({
-                      src: [
-                        "audio/03.mp3"
-                      ],
-                      autoplay: false,
-                      preload: true,
-                      loop: false,
-                      volume: 1,
-                      onend: function() {
-                        var sound = new Howl({
-                          src: [
-                            "audio/04.mp3"
-                          ],
-                          autoplay: false,
-                          preload: true,
-                          loop: false,
-                          volume: 1,
-                          onend: function() {
-                            var sound = new Howl({
-                              src: [
-                                "audio/05.mp3"
-                              ],
-                              autoplay: false,
-                              preload: true,
-                              loop: false,
-                              volume: 1,
-                              onend: function() {
+      var track_number = 0;
+      var sound = new Howl({
+        src: ["audio/01.mp3"],
+        autoplay: false,
+        preload: true,
+        loop: false,
+        volume: 1,
+        onend: function() {
+          var sound = new Howl({
+            src: ["audio/02.mp3"],
+            autoplay: false,
+            preload: true,
+            loop: false,
+            volume: 1,
+            onend: function() {
+              var sound = new Howl({
+                src: ["audio/03.mp3"],
+                autoplay: false,
+                preload: true,
+                loop: false,
+                volume: 1,
+                onend: function() {
+                  var sound = new Howl({
+                    src: ["audio/04.mp3"],
+                    autoplay: false,
+                    preload: true,
+                    loop: false,
+                    volume: 1,
+                    onend: function() {
+                      var sound = new Howl({
+                        src: ["audio/05.mp3"],
+                        autoplay: false,
+                        preload: true,
+                        loop: false,
+                        volume: 1,
+                        onend: function() {
+                          $("#renderer").fadeOut(3000, function() {
+                            editorCamera.cameraPos.x = 0;
+                            window.style = "entryspin";
+                          });
 
-                                  $("#renderer").fadeOut(3000, function() {
-                                    editorCamera.cameraPos.x = 0;
-                                    window.style = "entryspin";
-                                  });
+                          $(".b4").animate(
+                            {
+                              opacity: 0
+                            },
+                            1000
+                          );
+                          $(".b1").css("opacity", "0");
+                          $(".b1").css("display", "inherit");
+                          $("#renderer").fadeIn(500);
+                          $(".b1").animate(
+                            {
+                              opacity: 1
+                            },
+                            1000
+                          );
+                        }
+                      });
+                    }
+                  });
+                }
+              });
+            }
+          });
+        }
+      });
 
-                                  $(".b4").animate(
-                                    {
-                                      opacity: 0
-                                    },
-                                    1000
-                                  );
-                                  $(".b1").css("opacity", "0");
-                                  $(".b1").css("display", "inherit");
-                                  $("#renderer").fadeIn(500);
-                                  $(".b1").animate(
-                                    {
-                                      opacity: 1
-                                    },
-                                    1000
-                                  );
-                              }
-                          })
-                      }
-                  })
-              }
-            });
-          }
-        })
-      }
-    });
-
-
-            $(document).ready(function() {
-              window.enableRotate = 0;
-              // $("body").tilt({});
-              /*
+      $(document).ready(function() {
+        window.enableRotate = 0;
+        // $("body").tilt({});
+        /*
                     $("body").bind("keypress", function(e) {
                       if (e.which == 32) {
 
@@ -323,96 +311,96 @@
                       }
                     });
       */
-              $("body").bind("keypress", function(e) {
-                if (e.which == 13 || e.which == 27) {
-                  sound.stop();
-                  $("#renderer").fadeOut(3000, function() {
-                    editorCamera.cameraPos.x = 0;
-                    window.style = "entryspin";
-                  });
+        $("body").bind("keypress", function(e) {
+          if (e.which == 13 || e.which == 27) {
+            sound.stop();
+            $("#renderer").fadeOut(3000, function() {
+              editorCamera.cameraPos.x = 0;
+              window.style = "entryspin";
+            });
 
-                  $(".b4").animate(
-                    {
-                      opacity: 0
-                    },
-                    1000
-                  );
-                  $(".b1").css("opacity", "0");
-                  $(".b1").css("display", "inherit");
-                  $("#renderer").fadeIn(500);
-                  $(".b1").animate(
-                    {
-                      opacity: 1
-                    },
-                    1000
-                  );
-                }
-              });
+            $(".b4").animate(
+              {
+                opacity: 0
+              },
+              1000
+            );
+            $(".b1").css("opacity", "0");
+            $(".b1").css("display", "inherit");
+            $("#renderer").fadeIn(500);
+            $(".b1").animate(
+              {
+                opacity: 1
+              },
+              1000
+            );
+          }
+        });
 
-              $(".b1").animate(
+        $(".b1").animate(
+          {
+            opacity: 1
+          },
+          3000
+        );
+
+        $("#playlink").click(function() {
+          window.enableRotate = 1;
+          $(".b1").animate(
+            {
+              opacity: 0
+            },
+            1000,
+            function() {
+              $(".b1").css("display", "none");
+              sound.play();
+              $(".b2").animate(
                 {
                   opacity: 1
                 },
-                3000
+                3000,
+                function() {
+                  $(".b2").animate(
+                    {
+                      opacity: 0
+                    },
+                    3000,
+                    function() {
+                      $(".b3").animate(
+                        {
+                          opacity: 1
+                        },
+                        3000,
+                        function() {
+                          $(".b3").animate(
+                            {
+                              opacity: 0
+                            },
+                            3000,
+                            function() {
+                              $(".b4").animate(
+                                {
+                                  opacity: 1
+                                },
+                                3000,
+                                function() {
+                                  // Animation complete.
+                                }
+                              );
+                              editorCamera.cameraPos.x = 0;
+                              window.style = "newspin";
+                            }
+                          );
+                        }
+                      );
+                    }
+                  );
+                }
               );
-
-              $("#playlink").click(function() {
-                window.enableRotate = 1;
-                $(".b1").animate(
-                  {
-                    opacity: 0
-                  },
-                  1000,
-                  function() {
-                    $(".b1").css("display", "none");
-                    sound.play();
-                    $(".b2").animate(
-                      {
-                        opacity: 1
-                      },
-                      3000,
-                      function() {
-                        $(".b2").animate(
-                          {
-                            opacity: 0
-                          },
-                          3000,
-                          function() {
-                            $(".b3").animate(
-                              {
-                                opacity: 1
-                              },
-                              3000,
-                              function() {
-                                $(".b3").animate(
-                                  {
-                                    opacity: 0
-                                  },
-                                  3000,
-                                  function() {
-                                    $(".b4").animate(
-                                      {
-                                        opacity: 1
-                                      },
-                                      3000,
-                                      function() {
-                                        // Animation complete.
-                                      }
-                                    );
-                                    editorCamera.cameraPos.x = 0;
-                                    window.style = "newspin";
-                                  }
-                                );
-                              }
-                            );
-                          }
-                        );
-                      }
-                    );
-                  }
-                );
-              });
-            });
+            }
+          );
+        });
+      });
     </script>
   </body>
 </html>
