@@ -3,11 +3,37 @@
   src: url("fonts/BL.woff")
 }
 
+@font-face {
+  font-family: "Sohne";
+  font-weight: 300;
+  src: url("fonts/Sohne-Leicht.otf")
+}
+
+@font-face {
+  font-family: "Sohne";
+  font-weight: 400;
+  src: url("fonts/Sohne-Kraftig.otf")
+}
+
+@font-face {
+  font-family: "Sohne";
+  font-weight: 500;
+  src: url("fonts/Sohne-Halbfett.otf")
+}
+
+@font-face {
+  font-family: "Sohne";
+  font-weight: 600;
+  src: url("fonts/Sohne-Fett.otf")
+}
+
 html {
   padding: 0;
   margin: 0;
   background-color: rgba(0, 0, 0, 1);
   color: #fff;
+  font-family: "Sohne", sans-serif;
+  font-weight: 400;
 }
 
 body {
@@ -115,4 +141,31 @@ body {
 
 #parhelia {
   width: 320px;
+}
+
+.tracklisting {
+  display: flex;
+  flex-direction: column;
+}
+
+.tracklabel {
+
+}
+
+.trackrow {
+  display: flex;
+  flex-direction: row;
+}
+
+.track {
+  padding: 8px 15px 2px 0px;
+  min-width:200px;
+}
+
+.trackcurrentlength {
+  min-width: 100px;
+}
+
+.tracklength {
+  min-width:100px;
 }
