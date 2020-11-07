@@ -157,12 +157,13 @@ body {
   flex-direction: row;
   font-size: 1.2rem;
   transition: 0.3s ease;
+  align-items: flex-end;
 }
 
 .playing {
   font-size: 1.5rem;
   font-weight:500;
-  transition: 0.3s ease;
+  transition: 0.1s ease;
 }
 
 .track {
@@ -177,4 +178,5 @@ body {
 .tracklength {
   padding:0px 10px;
   text-align: right;
+  min-width: 65px;
 }

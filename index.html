@@ -572,7 +572,25 @@
 
 
 
+        window.setInterval(function(){
 
+          if (sound01.playing()) {
+            $(".trackcurrentlength").html("");
+            $(".trackcurrentlength01").html(sound01.seek() + " /")
+          } else if (sound02.playing()) {
+            $(".trackcurrentlength").html("");
+            $(".trackcurrentlength02").html(sound02.seek() + " /")
+          } else if (sound03.playing()) {
+            $(".trackcurrentlength").html("");
+            $(".trackcurrentlength03").html(sound03.seek() + " /")
+          } else if (sound04.playing()) {
+            $(".trackcurrentlength").html("");
+            $(".trackcurrentlength04").html(sound04.seek() + " /")
+          } else if (sound05.playing()) {
+            $(".trackcurrentlength").html("");
+            $(".trackcurrentlength05").html(sound05.seek() + " /")
+          }
+        }, 1000);
 
       });
     </script>
