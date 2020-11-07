@@ -158,12 +158,14 @@ body {
   font-size: 1.2rem;
   transition: 0.3s ease;
   align-items: flex-end;
+  opacity: 0.7;
 }
 
 .playing {
   font-size: 1.5rem;
   font-weight:500;
   transition: 0.1s ease;
+  opacity: 1;
 }
 
 .track {
