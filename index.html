@@ -33,7 +33,6 @@
       <div class="a2"></div>
       <div class="b1 centered">
         <a href="#" id="playlink"><img id="play" src="img/play.svg"/></a>
-
       </div>
       <div class="b2 centered">
         <img id="septagram" src="img/septagram.svg" />
@@ -47,380 +46,370 @@
     </div>
 
     <script type="text/javascript">
-      var timetochange = 1500;
-      /*
-              function main(){
-            let CVD = null; // return of Canvas2DDisplay
+            var timetochange = 1500;
+            /*
+                    function main(){
+                  let CVD = null; // return of Canvas2DDisplay
 
-            JEEFACEFILTERAPI.init({
-             canvasId: 'jeeFaceFilterCanvas',
-             NNCPath: 'neuralNets/', // root of NN_DEFAULT.json file
-             callbackReady: function(errCode, spec){
-               if (errCode){
-                 console.log('AN ERROR HAPPENS. SORRY BRO :( . ERR =', errCode);
-                 return;
-               }
+                  JEEFACEFILTERAPI.init({
+                   canvasId: 'jeeFaceFilterCanvas',
+                   NNCPath: 'neuralNets/', // root of NN_DEFAULT.json file
+                   callbackReady: function(errCode, spec){
+                     if (errCode){
+                       console.log('AN ERROR HAPPENS. SORRY BRO :( . ERR =', errCode);
+                       return;
+                     }
 
-               console.log('INFO: JEEFACEFILTERAPI IS READY');
-               CVD = JeelizCanvas2DHelper(spec);
-               CVD.ctx.strokeStyle = 'yellow';
-             },
+                     console.log('INFO: JEEFACEFILTERAPI IS READY');
+                     CVD = JeelizCanvas2DHelper(spec);
+                     CVD.ctx.strokeStyle = 'yellow';
+                   },
 
-             // called at each render iteration (drawing loop):
-             callbackTrack: function(detectState){
-               if (detectState.detected>0.6){
-                 temp = detectState.s;
-                 temp = temp * 100;
-                 temp = 100 - temp;
-                 temp = temp / 100;
-                 temp = temp * 1500
-                 if (temp <= 0){
-                   temp = 1500;
-                 }
-                 window.timetochange = temp;
-              } else {
-                window.timetochange = 1500;
-              }
-             }
-            });
-
-
-
-            };
-
-
-
-            $("img").attr("draggable", false);
-            $("svg").attr("draggable", false);
-            $("div").attr("draggable", false);
-            $("img").on("dragstart", function(event) {
-              event.preventDefault();
-            });
-            $("svg").on("dragstart", function(event) {
-              event.preventDefault();
-            });
-
-            */
-
-      /*
-                  var inputPrompt = prompt("Please enter a string.", "parhelia");
-                  var inputPrompt = inputPrompt.toLowerCase();
-                  var inputPromptChars = [];
-                  var inputPromptChars = inputPrompt.split("");
-                  inputPromptChars.forEach(charFunc);
-
-                  function charFunc(item, index) {
-                    if (item == "/") {
-                      $(".a2").append("<br><br>");
-                    } else if (item == " ") {
-                      $(".a2").append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
+                   // called at each render iteration (drawing loop):
+                   callbackTrack: function(detectState){
+                     if (detectState.detected>0.6){
+                       temp = detectState.s;
+                       temp = temp * 100;
+                       temp = 100 - temp;
+                       temp = temp / 100;
+                       temp = temp * 1500
+                       if (temp <= 0){
+                         temp = 1500;
+                       }
+                       window.timetochange = temp;
                     } else {
-                      $(".a2").append(
-                        "<img class='svganim " +
-                          item +
-                          " noselect' height='300px' width='300px;' src='/'>"
-                      );
+                      window.timetochange = 1500;
                     }
-                  }
-
-                  var letter = "a";
-                  var file = "";
-                  var letters = [
-                    "a",
-                    "b",
-                    "c",
-                    "d",
-                    "e",
-                    "f",
-                    "g",
-                    "h",
-                    "i",
-                    "j",
-                    "k",
-                    "l",
-                    "m",
-                    "n",
-                    "o",
-                    "p",
-                    "q",
-                    "r",
-                    "s",
-                    "t",
-                    "u",
-                    "v",
-                    "w",
-                    "x",
-                    "y",
-                    "z"
-                  ];
-                  var amounts = [
-                    45,
-                    43,
-                    20,
-                    38,
-                    14,
-                    30,
-                    12,
-                    14,
-                    6,
-                    13,
-                    10,
-                    5,
-                    12,
-                    7,
-                    11,
-                    8,
-                    5,
-                    10,
-                    24,
-                    18,
-                    18,
-                    18,
-                    6,
-                    5,
-                    66,
-                    16
-                  ];
-
-                  var obj = {};
-
-                  for (var i = 0; i <= letters.length; i++) {
-                    //   var file = "../../Scans/Outputs 2/output svgs/svgs/" + letters[i] + "/" + letters[i] + i + ".svg";
-              //  var index = letters[i];
-
-              //  fileArray.push(index:file);
-
-                    var fileArray = [];
-                    var key = letters[i];
-                    for (var j = 0; j <= amounts[i]; j++) {
-                      var file =
-                        "../../Scans/Outputs 2/output svgs/svgs/" +
-                        letters[i] +
-                        "/" +
-                        letters[i] +
-                        j +
-                        ".svg";
-                      fileArray.push(file);
-                    }
-                    obj[key] = fileArray;
-                  }
-
-                  // console.log(Object.keys(obj));
-                  // console.log(Object.keys(obj)[27]);
-
-
-                  $(".svganim").each(function(timetochange) {
-                    var sc = $(this)
-                      .attr("class")
-                      .split(" ")[1];
-                    var urls = obj[sc];
-                    // console.log("urls");
-                    var this2 = $(this);
-                    setInterval(function(timetochange) {
-                      // console.log(sc);
-                      var index = Math.floor(Math.random() * urls.length) + 1;
-                      var newUrl = urls[index];
-                      // console.log(timetochange);
-                      $(this2).attr("src", newUrl);
-                    }, 1000);
+                   }
                   });
 
-            */
-      var enableRotate = 0;
-      window.enableRotate = 0;
 
-      SS.main.main();
 
-      var track_number = 0;
-      var sound = new Howl({
-        src: [
-          "audio/01.mp3"
-        ],
-        autoplay: false,
-        preload: true,
-        loop: false,
-        volume: 1,
-        onend: function() {
-          var sound = new Howl({
-            src: [
-              "audio/02.mp3"
-            ],
-            autoplay: false,
-            preload: true,
-            loop: false,
-            volume: 1,
-            onend: function() {
-              var sound = new Howl({
-                src: [
-                  "audio/03.mp3"
-                ],
-                autoplay: false,
-                preload: true,
-                loop: false,
-                volume: 1,
-                onend: function() {
-                  var sound = new Howl({
-                    src: [
-                      "audio/04.mp3"
-                    ],
-                    autoplay: false,
-                    preload: true,
-                    loop: false,
-                    volume: 1,
-                    onend: function() {
-                      var sound = new Howl({
-                        src: [
-                          "audio/05.mp3"
-                        ],
-                        autoplay: false,
-                        preload: true,
-                        loop: false,
-                        volume: 1,
-                        onend: function() {
+                  };
 
-                            $("#renderer").fadeOut(3000, function() {
-                              editorCamera.cameraPos.x = 0;
-                              window.style = "entryspin";
-                            });
 
-                            $(".b4").animate(
-                              {
-                                opacity: 0
-                              },
-                              1000
+
+                  $("img").attr("draggable", false);
+                  $("svg").attr("draggable", false);
+                  $("div").attr("draggable", false);
+                  $("img").on("dragstart", function(event) {
+                    event.preventDefault();
+                  });
+                  $("svg").on("dragstart", function(event) {
+                    event.preventDefault();
+                  });
+
+                  */
+
+            /*
+                        var inputPrompt = prompt("Please enter a string.", "parhelia");
+                        var inputPrompt = inputPrompt.toLowerCase();
+                        var inputPromptChars = [];
+                        var inputPromptChars = inputPrompt.split("");
+                        inputPromptChars.forEach(charFunc);
+
+                        function charFunc(item, index) {
+                          if (item == "/") {
+                            $(".a2").append("<br><br>");
+                          } else if (item == " ") {
+                            $(".a2").append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
+                          } else {
+                            $(".a2").append(
+                              "<img class='svganim " +
+                                item +
+                                " noselect' height='300px' width='300px;' src='/'>"
                             );
-                            $(".b1").css("opacity", "0");
-                            $(".b1").css("display", "inherit");
-                            $("#renderer").fadeIn(500);
-                            $(".b1").animate(
-                              {
-                                opacity: 1
-                              },
-                              1000
-                            );
+                          }
+                        }
+
+                        var letter = "a";
+                        var file = "";
+                        var letters = [
+                          "a",
+                          "b",
+                          "c",
+                          "d",
+                          "e",
+                          "f",
+                          "g",
+                          "h",
+                          "i",
+                          "j",
+                          "k",
+                          "l",
+                          "m",
+                          "n",
+                          "o",
+                          "p",
+                          "q",
+                          "r",
+                          "s",
+                          "t",
+                          "u",
+                          "v",
+                          "w",
+                          "x",
+                          "y",
+                          "z"
+                        ];
+                        var amounts = [
+                          45,
+                          43,
+                          20,
+                          38,
+                          14,
+                          30,
+                          12,
+                          14,
+                          6,
+                          13,
+                          10,
+                          5,
+                          12,
+                          7,
+                          11,
+                          8,
+                          5,
+                          10,
+                          24,
+                          18,
+                          18,
+                          18,
+                          6,
+                          5,
+                          66,
+                          16
+                        ];
+
+                        var obj = {};
+
+                        for (var i = 0; i <= letters.length; i++) {
+                          //   var file = "../../Scans/Outputs 2/output svgs/svgs/" + letters[i] + "/" + letters[i] + i + ".svg";
+                    //  var index = letters[i];
+
+                    //  fileArray.push(index:file);
+
+                          var fileArray = [];
+                          var key = letters[i];
+                          for (var j = 0; j <= amounts[i]; j++) {
+                            var file =
+                              "../../Scans/Outputs 2/output svgs/svgs/" +
+                              letters[i] +
+                              "/" +
+                              letters[i] +
+                              j +
+                              ".svg";
+                            fileArray.push(file);
+                          }
+                          obj[key] = fileArray;
+                        }
+
+                        // console.log(Object.keys(obj));
+                        // console.log(Object.keys(obj)[27]);
 
 
-                        };
+                        $(".svganim").each(function(timetochange) {
+                          var sc = $(this)
+                            .attr("class")
+                            .split(" ")[1];
+                          var urls = obj[sc];
+                          // console.log("urls");
+                          var this2 = $(this);
+                          setInterval(function(timetochange) {
+                            // console.log(sc);
+                            var index = Math.floor(Math.random() * urls.length) + 1;
+                            var newUrl = urls[index];
+                            // console.log(timetochange);
+                            $(this2).attr("src", newUrl);
+                          }, 1000);
+                        });
 
+                  */
+            var enableRotate = 0;
+            window.enableRotate = 0;
 
-                    });
+            SS.main.main();
 
+            var track_number = 0;
+            var sound = new Howl({
+              src: [
+                "audio/01.mp3"
+              ],
+              autoplay: false,
+              preload: true,
+              loop: false,
+              volume: 1,
+              onend: function() {
+                var sound = new Howl({
+                  src: [
+                    "audio/02.mp3"
+                  ],
+                  autoplay: false,
+                  preload: true,
+                  loop: false,
+                  volume: 1,
+                  onend: function() {
+                    var sound = new Howl({
+                      src: [
+                        "audio/03.mp3"
+                      ],
+                      autoplay: false,
+                      preload: true,
+                      loop: false,
+                      volume: 1,
+                      onend: function() {
+                        var sound = new Howl({
+                          src: [
+                            "audio/04.mp3"
+                          ],
+                          autoplay: false,
+                          preload: true,
+                          loop: false,
+                          volume: 1,
+                          onend: function() {
+                            var sound = new Howl({
+                              src: [
+                                "audio/05.mp3"
+                              ],
+                              autoplay: false,
+                              preload: true,
+                              loop: false,
+                              volume: 1,
+                              onend: function() {
 
-                });
+                                  $("#renderer").fadeOut(3000, function() {
+                                    editorCamera.cameraPos.x = 0;
+                                    window.style = "entryspin";
+                                  });
 
-
-            });
-
-
-        });
-      });
-
-
-
-      $(document).ready(function() {
-        window.enableRotate = 0;
-        // $("body").tilt({});
-        /*
-              $("body").bind("keypress", function(e) {
-                if (e.which == 32) {
-
-                  //var cameraPosYnew = window.cameraPosY;
-                  //var cameraPosXnew = window.cameraPosX;
-                  //var cameraPosZnew = window.cameraPosZ;
-                  //while (cameraPosYnew != window.cameraPosY)
-                }
+                                  $(".b4").animate(
+                                    {
+                                      opacity: 0
+                                    },
+                                    1000
+                                  );
+                                  $(".b1").css("opacity", "0");
+                                  $(".b1").css("display", "inherit");
+                                  $("#renderer").fadeIn(500);
+                                  $(".b1").animate(
+                                    {
+                                      opacity: 1
+                                    },
+                                    1000
+                                  );
+                              };
+                          });
+                      });
+                  });
               });
-*/
-        $("body").bind("keypress", function(e) {
-          if (e.which == 13 || e.which == 27) {
-            sound.stop();
-            $("#renderer").fadeOut(3000, function() {
-              editorCamera.cameraPos.x = 0;
-              window.style = "entryspin";
             });
 
-            $(".b4").animate(
-              {
-                opacity: 0
-              },
-              1000
-            );
-            $(".b1").css("opacity", "0");
-            $(".b1").css("display", "inherit");
-            $("#renderer").fadeIn(500);
-            $(".b1").animate(
-              {
-                opacity: 1
-              },
-              1000
-            );
-          }
-        });
 
-        $(".b1").animate(
-          {
-            opacity: 1
-          },
-          3000
-        );
 
-        $("#playlink").click(function() {
-          window.enableRotate = 1;
-          $(".b1").animate(
-            {
-              opacity: 0
-            },
-            1000,
-            function() {
-              $(".b1").css("display", "none");
-              sound.play();
-              $(".b2").animate(
-                {
-                  opacity: 1
-                },
-                3000,
-                function() {
-                  $(".b2").animate(
+            $(document).ready(function() {
+              window.enableRotate = 0;
+              // $("body").tilt({});
+              /*
+                    $("body").bind("keypress", function(e) {
+                      if (e.which == 32) {
+
+                        //var cameraPosYnew = window.cameraPosY;
+                        //var cameraPosXnew = window.cameraPosX;
+                        //var cameraPosZnew = window.cameraPosZ;
+                        //while (cameraPosYnew != window.cameraPosY)
+                      }
+                    });
+      */
+              $("body").bind("keypress", function(e) {
+                if (e.which == 13 || e.which == 27) {
+                  sound.stop();
+                  $("#renderer").fadeOut(3000, function() {
+                    editorCamera.cameraPos.x = 0;
+                    window.style = "entryspin";
+                  });
+
+                  $(".b4").animate(
                     {
                       opacity: 0
                     },
-                    3000,
-                    function() {
-                      $(".b3").animate(
-                        {
-                          opacity: 1
-                        },
-                        3000,
-                        function() {
-                          $(".b3").animate(
-                            {
-                              opacity: 0
-                            },
-                            3000,
-                            function() {
-                              $(".b4").animate(
-                                {
-                                  opacity: 1
-                                },
-                                3000,
-                                function() {
-                                  // Animation complete.
-                                }
-                              );
-                              editorCamera.cameraPos.x = 0;
-                              window.style = "newspin";
-                            }
-                          );
-                        }
-                      );
-                    }
+                    1000
+                  );
+                  $(".b1").css("opacity", "0");
+                  $(".b1").css("display", "inherit");
+                  $("#renderer").fadeIn(500);
+                  $(".b1").animate(
+                    {
+                      opacity: 1
+                    },
+                    1000
                   );
                 }
+              });
+
+              $(".b1").animate(
+                {
+                  opacity: 1
+                },
+                3000
               );
-            }
-          );
-        });
-      });
+
+              $("#playlink").click(function() {
+                window.enableRotate = 1;
+                $(".b1").animate(
+                  {
+                    opacity: 0
+                  },
+                  1000,
+                  function() {
+                    $(".b1").css("display", "none");
+                    sound.play();
+                    $(".b2").animate(
+                      {
+                        opacity: 1
+                      },
+                      3000,
+                      function() {
+                        $(".b2").animate(
+                          {
+                            opacity: 0
+                          },
+                          3000,
+                          function() {
+                            $(".b3").animate(
+                              {
+                                opacity: 1
+                              },
+                              3000,
+                              function() {
+                                $(".b3").animate(
+                                  {
+                                    opacity: 0
+                                  },
+                                  3000,
+                                  function() {
+                                    $(".b4").animate(
+                                      {
+                                        opacity: 1
+                                      },
+                                      3000,
+                                      function() {
+                                        // Animation complete.
+                                      }
+                                    );
+                                    editorCamera.cameraPos.x = 0;
+                                    window.style = "newspin";
+                                  }
+                                );
+                              }
+                            );
+                          }
+                        );
+                      }
+                    );
+                  }
+                );
+              });
+            });
     </script>
   </body>
 </html>
