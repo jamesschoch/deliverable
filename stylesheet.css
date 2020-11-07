@@ -156,12 +156,13 @@ body {
   display: flex;
   flex-direction: row;
   font-size: 1.2rem;
-
+  transition: 0.3s ease;
 }
 
 .playing {
   font-size: 1.5rem;
   font-weight:500;
+  transition: 0.3s ease;
 }
 
 .track {
