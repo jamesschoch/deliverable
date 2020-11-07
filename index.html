@@ -255,9 +255,10 @@
                   //while (cameraPosYnew != window.cameraPosY)
                 }
               });
-
+*/
               $("body").bind("keypress", function(e) {
                 if (e.which == 13) {
+                  sound.stop();
                   $("#renderer").fadeOut(3000, function() {
                     editorCamera.cameraPos.x = 0;
                     window.style = "entryspin";
@@ -266,7 +267,7 @@
                   $("#renderer").fadeIn(500);
                 }
               });
-              */
+
         $(".b1").animate(
           {
             opacity: 1
