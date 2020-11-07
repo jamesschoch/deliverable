@@ -570,25 +570,53 @@
 
 
 
+        function getTime(seconds) {
 
+    //a day contains 60 * 60 * 24 = 86400 seconds
+    //an hour contains 60 * 60 = 3600 seconds
+    //a minut contains 60 seconds
+    //the amount of seconds we have left
+    var leftover = seconds;
+
+    //how many full days fits in the amount of leftover seconds
+    var days = Math.floor(leftover / 86400);
+
+    //how many seconds are left
+    leftover = leftover - (days * 86400);
+
+    //how many full hours fits in the amount of leftover seconds
+    var hours = Math.floor(leftover / 3600);
+
+    //how many seconds are left
+    leftover = leftover - (hours * 3600);
+
+    //how many minutes fits in the amount of leftover seconds
+    var minutes = Math.floor(leftover / 60);
+
+    //how many seconds are left
+    leftover = leftover - (minutes * 60);
+    leftover = Math.trunc(leftover);
+    var minsec = minutes + ':' + leftover;
+    return minsec;
+}
 
         window.setInterval(function(){
 
           if (sound01.playing()) {
             $(".trackcurrentlength").html("");
-            $(".trackcurrentlength01").html(sound01.seek() + " /")
+            $(".trackcurrentlength01").html(getTime(sound01.seek()) + " /")
           } else if (sound02.playing()) {
             $(".trackcurrentlength").html("");
-            $(".trackcurrentlength02").html(sound02.seek() + " /")
+            $(".trackcurrentlength02").html(getTime(sound02.seek()) + " /")
           } else if (sound03.playing()) {
             $(".trackcurrentlength").html("");
-            $(".trackcurrentlength03").html(sound03.seek() + " /")
+            $(".trackcurrentlength03").html(getTime(sound03.seek()) + " /")
           } else if (sound04.playing()) {
             $(".trackcurrentlength").html("");
-            $(".trackcurrentlength04").html(sound04.seek() + " /")
+            $(".trackcurrentlength04").html(getTime(sound04.seek()) + " /")
           } else if (sound05.playing()) {
             $(".trackcurrentlength").html("");
-            $(".trackcurrentlength05").html(sound05.seek() + " /")
+            $(".trackcurrentlength05").html(getTime(sound05.seek()) + " /")
           }
         }, 1000);
 
