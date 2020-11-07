@@ -264,7 +264,12 @@
                     window.style = "entryspin";
                   });
 
-
+                  $(".b4").animate(
+                    {
+                      opacity: 0
+                    },
+                    1000
+                  );
                   $(".b1").css("visibility","visible");
                   $("#renderer").fadeIn(500);
                   $(".b1").animate(
