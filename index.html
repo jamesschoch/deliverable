@@ -23,7 +23,6 @@
     <script src="./js/main.js"></script>
   </head>
   <body>
-
     <canvas width="600" height="600" id="jeeFaceFilterCanvas"></canvas>
 
     <div class="document">
@@ -238,69 +237,76 @@
         loop: false,
         volume: 1,
         onend: function() {
+          console.log("Track 2 playing");
           sound02.play();
-        }});
+        }
+      });
 
-        var sound02 = new Howl({
-          src: ["audio/01.mp3"],
-          autoplay: false,
-          preload: true,
-          loop: false,
-          volume: 1,
-          onend: function() {
-sound03.play();
-          }});
+      var sound02 = new Howl({
+        src: ["audio/01.mp3"],
+        autoplay: false,
+        preload: true,
+        loop: false,
+        volume: 1,
+        onend: function() {
+          console.log("Track 3 playing");
+          sound03.play();
+        }
+      });
 
-          var sound03 = new Howl({
-            src: ["audio/01.mp3"],
-            autoplay: false,
-            preload: true,
-            loop: false,
-            volume: 1,
-            onend: function() {
-sound04.play();
-            }});
+      var sound03 = new Howl({
+        src: ["audio/01.mp3"],
+        autoplay: false,
+        preload: true,
+        loop: false,
+        volume: 1,
+        onend: function() {
+          console.log("Track 4 playing");
+          sound04.play();
+        }
+      });
 
-            var sound04 = new Howl({
-              src: ["audio/01.mp3"],
-              autoplay: false,
-              preload: true,
-              loop: false,
-              volume: 1,
-              onend: function() {
-sound05.play();
-              }});
+      var sound04 = new Howl({
+        src: ["audio/01.mp3"],
+        autoplay: false,
+        preload: true,
+        loop: false,
+        volume: 1,
+        onend: function() {
+          console.log("Track 5 playing");
+          sound05.play();
+        }
+      });
 
-              var sound05 = new Howl({
-                src: ["audio/01.mp3"],
-                autoplay: false,
-                preload: true,
-                loop: false,
-                volume: 1,
-                onend: function() {
-                  $("#renderer").fadeOut(3000, function() {
-                    editorCamera.cameraPos.x = 0;
-                    window.style = "entryspin";
-                  });
+      var sound05 = new Howl({
+        src: ["audio/01.mp3"],
+        autoplay: false,
+        preload: true,
+        loop: false,
+        volume: 1,
+        onend: function() {
+          $("#renderer").fadeOut(3000, function() {
+            editorCamera.cameraPos.x = 0;
+            window.style = "entryspin";
+          });
 
-                  $(".b4").animate(
-                    {
-                      opacity: 0
-                    },
-                    1000
-                  );
-                  $(".b1").css("opacity", "0");
-                  $(".b1").css("display", "inherit");
-                  $("#renderer").fadeIn(500);
-                  $(".b1").animate(
-                    {
-                      opacity: 1
-                    },
-                    1000
-                  );
-                }});
-
-
+          $(".b4").animate(
+            {
+              opacity: 0
+            },
+            1000
+          );
+          $(".b1").css("opacity", "0");
+          $(".b1").css("display", "inherit");
+          $("#renderer").fadeIn(500);
+          $(".b1").animate(
+            {
+              opacity: 1
+            },
+            1000
+          );
+        }
+      });
 
       $(document).ready(function() {
         window.enableRotate = 0;
@@ -318,7 +324,11 @@ sound05.play();
       */
         $("body").bind("keypress", function(e) {
           if (e.which == 13 || e.which == 27) {
-            sound.stop();
+            sound01.stop();
+            sound02.stop();
+            sound03.stop();
+            sound04.stop();
+            sound05.stop();
             $("#renderer").fadeOut(3000, function() {
               editorCamera.cameraPos.x = 0;
               window.style = "entryspin";
@@ -358,6 +368,7 @@ sound05.play();
             1000,
             function() {
               $(".b1").css("display", "none");
+              console.log("Track 1 playing");
               sound01.play();
               $(".b2").animate(
                 {
