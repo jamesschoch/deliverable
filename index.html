@@ -274,7 +274,7 @@
             }
           });
           $(".trackrow01").addClass('playing');
-          
+
         },
         onend: function() {
           console.log("Track 2 playing");
@@ -488,6 +488,91 @@
             }
           );
         });
+
+        $(".trackrow01").click(function(){
+          $(".trackrow").each(function(){
+            if($(this).hasClass('playing')) {
+              $(this).removeClass('playing')
+            }
+          });
+          $(".trackrow01").addClass('playing');
+          sound01.play();
+          sound02.stop();
+          sound03.stop();
+          sound04.stop();
+          sound05.stop();
+
+        });
+
+        $(".trackrow02").click(function(){
+          $(".trackrow").each(function(){
+            if($(this).hasClass('playing')) {
+              $(this).removeClass('playing')
+            }
+          });
+          $(".trackrow02").addClass('playing');
+          sound01.stop();
+          sound02.play();
+          sound03.stop();
+          sound04.stop();
+          sound05.stop();
+
+        });
+
+        $(".trackrow03").click(function(){
+          $(".trackrow").each(function(){
+            if($(this).hasClass('playing')) {
+              $(this).removeClass('playing')
+            }
+          });
+          $(".trackrow03").addClass('playing');
+          sound01.stop();
+          sound02.stop();
+          sound03.play();
+          sound04.stop();
+          sound05.stop();
+
+        });
+
+        $(".trackrow04").click(function(){
+          $(".trackrow").each(function(){
+            if($(this).hasClass('playing')) {
+              $(this).removeClass('playing')
+            }
+          });
+          $(".trackrow04").addClass('playing');
+          sound01.stop();
+          sound02.stop();
+          sound03.stop();
+          sound04.play();
+          sound05.stop();
+
+        });
+
+        $(".trackrow05").click(function(){
+          $(".trackrow").each(function(){
+            if($(this).hasClass('playing')) {
+              $(this).removeClass('playing')
+            }
+          });
+          $(".trackrow05").addClass('playing');
+          sound01.stop();
+          sound02.stop();
+          sound03.stop();
+          sound04.stop();
+          sound05.play();
+
+        });
+
+
+
+
+
+
+
+
+
+
       });
     </script>
   </body>
