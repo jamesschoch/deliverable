@@ -230,14 +230,24 @@
 
       SS.main.main();
 
-      var currentTrack = 0;
+      var track_number = 0;
       var sound = new Howl({
-        src: ["audio/01.mp3", "audio/02.mp3", "audio/03.mp3", "audio/04.mp3", "audio/05.mp3"],
+        src: [
+          "audio/01.mp3",
+          "audio/02.mp3",
+          "audio/03.mp3",
+          "audio/04.mp3",
+          "audio/05.mp3"
+        ],
         autoplay: false,
         preload: true,
         loop: false,
-        volume: 1,
-        onend: function() {
+        volume: 1
+      });
+
+      sound.on("end", function() {
+        track_number++;
+        if ((track_number = 4)) {
           $("#renderer").fadeOut(3000, function() {
             editorCamera.cameraPos.x = 0;
             window.style = "entryspin";
@@ -249,8 +259,8 @@
             },
             1000
           );
-          $(".b1").css("opacity","0");
-          $(".b1").css("display","inherit");
+          $(".b1").css("opacity", "0");
+          $(".b1").css("display", "inherit");
           $("#renderer").fadeIn(500);
           $(".b1").animate(
             {
@@ -275,31 +285,31 @@
                 }
               });
 */
-              $("body").bind("keypress", function(e) {
-                if (e.which == 13) {
-                  sound.stop();
-                  $("#renderer").fadeOut(3000, function() {
-                    editorCamera.cameraPos.x = 0;
-                    window.style = "entryspin";
-                  });
+        $("body").bind("keypress", function(e) {
+          if (e.which == 13) {
+            sound.stop();
+            $("#renderer").fadeOut(3000, function() {
+              editorCamera.cameraPos.x = 0;
+              window.style = "entryspin";
+            });
 
-                  $(".b4").animate(
-                    {
-                      opacity: 0
-                    },
-                    1000
-                  );
-                  $(".b1").css("opacity","0");
-                  $(".b1").css("display","inherit");
-                  $("#renderer").fadeIn(500);
-                  $(".b1").animate(
-                    {
-                      opacity: 1
-                    },
-                    1000
-                  );
-                }
-              });
+            $(".b4").animate(
+              {
+                opacity: 0
+              },
+              1000
+            );
+            $(".b1").css("opacity", "0");
+            $(".b1").css("display", "inherit");
+            $("#renderer").fadeIn(500);
+            $(".b1").animate(
+              {
+                opacity: 1
+              },
+              1000
+            );
+          }
+        });
 
         $(".b1").animate(
           {
