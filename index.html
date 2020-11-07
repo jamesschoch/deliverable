@@ -264,7 +264,15 @@
                     window.style = "entryspin";
                   });
 
+
+                  $(".b1").css("visibility","visible");
                   $("#renderer").fadeIn(500);
+                  $(".b1").animate(
+                    {
+                      opacity: 1
+                    },
+                    1000
+                  );
                 }
               });
 
