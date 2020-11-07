@@ -99,7 +99,8 @@ SS.util.EditorCamera = function(
   var editorCamera = this;
 
   var addEventListeners = function() {
-    document.addEventListener("mousemove", function(event) {
+    /*
+		document.addEventListener("mousemove", function(event) {
       var mousePos = new THREE.Vector2(event.clientX, event.clientY);
       if (editorCamera.mouseDown == true) {
         var diff = mousePos
@@ -110,7 +111,7 @@ SS.util.EditorCamera = function(
         editorCamera.rotateCamera();
       }
     });
-    /*
+
 		 document.addEventListener('mousewheel', function(event) {
 			var delta = event.wheelDelta/10000;
 			if (editorCamera.getScaledRadius(editorCamera.radius - delta) >= 0) {
