@@ -3,15 +3,23 @@
   src: url("fonts/BL.woff")
 }
 
-html, body {
+html {
   padding: 0;
   margin: 0;
-  background-color: rga(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 1);
+  color: #fff;
+}
+
+body {
+  padding: 0;
+  margin: 0;
 }
 
 .document {
+  box-sizing: border-box;
   width: 100vw;
   height: 100vh;
+  padding: 200px 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -38,11 +46,16 @@ html, body {
 
 .svganim {
   display: inline-block;
-  margin: -80px -100px;
+  /* margin: -30px -135px;
+  height: 100px; */
+  margin: -80px -105px;
+  height: 300px;
+
 }
 
 .a2 {
   text-align: center;
+  z-index: 10;
 }
 
 
@@ -56,5 +69,49 @@ html, body {
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: -10;
+  z-index: 0;
+  /* display: none; */
+}
+
+.noselect, img, svg {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none;
+}
+
+.centered {
+  position: absolute;
+  top:calc(50% - 400px);
+  left:calc(50% - 400px);
+  width: 800px;
+  height: 800px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index:5;
+
+}
+
+#play {
+  width: 70px;
+  padding: 100px;
+}
+
+.b1, .b2, .b3, .b4 {
+  opacity: 0;
+}
+
+.b1 {
+  z-index: 10;
+}
+
+#septagram {
+  width: 320px;
+}
+
+#parhelia {
+  width: 320px;
 }
