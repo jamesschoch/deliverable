@@ -267,6 +267,15 @@
         preload: true,
         loop: false,
         volume: 1,
+        onplay: function() {
+          $(".trackrow").each(function(){
+            if($(this).hasClass('playing')) {
+              $(this).removeClass('playing')
+            }
+          });
+          $(".trackrow01").addClass('playing');
+          
+        },
         onend: function() {
           console.log("Track 2 playing");
           sound02.play();
@@ -282,6 +291,14 @@
         onend: function() {
           console.log("Track 3 playing");
           sound03.play();
+        },
+        onplay: function() {
+          $(".trackrow").each(function(){
+            if($(this).hasClass('playing')) {
+              $(this).removeClass('playing')
+            }
+          });
+          $(".trackrow02").addClass('playing');
         }
       });
 
@@ -294,6 +311,14 @@
         onend: function() {
           console.log("Track 4 playing");
           sound04.play();
+        },
+        onplay: function() {
+          $(".trackrow").each(function(){
+            if($(this).hasClass('playing')) {
+              $(this).removeClass('playing')
+            }
+          });
+          $(".trackrow03").addClass('playing');
         }
       });
 
@@ -306,6 +331,14 @@
         onend: function() {
           console.log("Track 5 playing");
           sound05.play();
+        },
+        onplay: function() {
+          $(".trackrow").each(function(){
+            if($(this).hasClass('playing')) {
+              $(this).removeClass('playing')
+            }
+          });
+          $(".trackrow04").addClass('playing');
         }
       });
 
@@ -336,6 +369,14 @@
             },
             1000
           );
+        },
+        onplay: function() {
+          $(".trackrow").each(function(){
+            if($(this).hasClass('playing')) {
+              $(this).removeClass('playing')
+            }
+          });
+          $(".trackrow05").addClass('playing');
         }
       });
 
