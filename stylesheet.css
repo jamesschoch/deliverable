@@ -175,6 +175,7 @@ body {
 
 .trackcurrentlength {
   min-width: 100px;
+  text-align: right;
 }
 
 .tracklength {
