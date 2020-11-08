@@ -579,9 +579,10 @@
           var n = leftover.toString().length;
           console.log(n);
           console.log(leftover);
-          if ((n = 1)) {
+          if (n = 1) {
             leftover = "0" + leftover;
           } else {
+            leftover = leftover.toString();
           }
           console.log(leftover);
           var minsec = minutes + ":" + leftover;
