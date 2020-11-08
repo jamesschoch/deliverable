@@ -436,10 +436,11 @@
         );
 
         $("#playlink").click(function() {
+          editorCamera.cameraPos.x = 0;
+          window.style = "entryspin";
+        window.enableRotate = 1;
           $("#renderer").fadeIn(3000);
-            editorCamera.cameraPos.x = 0;
-            window.style = "entryspin";
-          window.enableRotate = 1;
+
           $(".b1").animate(
             {
               opacity: 0
