@@ -417,13 +417,15 @@
             );
             $(".b1").css("opacity", "0");
             $(".b1").css("display", "inherit");
-            
-            $(".b1").animate(
+
+            setTimeout(function(){
+              $(".b1").animate(
               {
                 opacity: 1
               },
               1000
             );
+          }, 3000);
           }
         });
 
