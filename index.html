@@ -450,9 +450,9 @@ $(".button").click(function(){
             },
             1000,
             function() {
-              $("#renderer").fadeIn(3000, function(){
-                editorCamera.cameraPos.x = 0;
-              window.style = "entryspin";
+              editorCamera.cameraPos.x = 0;
+            window.style = "entryspin";
+            $("#renderer").fadeIn(3000, function(){
             window.enableRotate = 1;
             });
 
