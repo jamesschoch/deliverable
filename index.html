@@ -577,14 +577,14 @@
           leftover = leftover - minutes * 60;
           leftover = Math.trunc(leftover);
           var n = leftover.toString().length;
-          console.log(n);
-          console.log(leftover);
+          // console.log(n);
+          // console.log(leftover);
           if (n == 1) {
             leftover = "0" + leftover;
           } else {
             leftover = leftover.toString();
           }
-          console.log(leftover);
+          // console.log(leftover);
           var minsec = minutes + ":" + leftover;
           return minsec;
         }
