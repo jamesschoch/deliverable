@@ -351,7 +351,9 @@
         onend: function() {
           $("#renderer").fadeOut(3000, function() {
             editorCamera.cameraPos.x = 0;
-            window.style = "classicspin";
+            window.enableRotate = 0;
+            window.style = "entryspin";
+            $("#renderer").fadeIn(3000);
           });
 
           $(".b4").animate(
@@ -403,7 +405,9 @@
             sound05.stop();
             $("#renderer").fadeOut(3000, function() {
               editorCamera.cameraPos.x = 0;
-              window.style = "classicspin";
+              window.enableRotate = 0;
+              window.style = "entryspin";
+              $("#renderer").fadeIn(3000);
             });
 
             $(".b4").animate(
@@ -433,10 +437,7 @@
 
         $("#playlink").click(function() {
 
-          $("#renderer").fadeOut(3000, function() {
-            editorCamera.cameraPos.x = 0;
             window.style = "entryspin";
-          });
           window.enableRotate = 1;
           $(".b1").animate(
             {
