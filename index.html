@@ -438,10 +438,7 @@
         $("#playlink").click(function() {
           editorCamera.cameraPos.x = 0;
 
-          $("#renderer").fadeIn(3000, function(){
-            window.style = "entryspin";
-          window.enableRotate = 1;
-          });
+
 
           $(".b1").animate(
             {
@@ -449,6 +446,10 @@
             },
             1000,
             function() {
+              $("#renderer").fadeIn(3000, function(){
+              window.style = "entryspin";
+            window.enableRotate = 1;
+            });
 
               $(".b1").css("display", "none");
               $(".trackrow01").addClass("playing");
