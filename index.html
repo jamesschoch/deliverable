@@ -596,10 +596,10 @@
     //how many seconds are left
     leftover = leftover - (minutes * 60);
     leftover = Math.trunc(leftover);
-    var n = leftover.length;
+    var n = leftover.toString().length;
     console.log(n);
     if (n = 1) {
-      leftover = "0" + leftover;
+      leftover = "0" + n;
     }
     var minsec = minutes + ':' + leftover;
     return minsec;
