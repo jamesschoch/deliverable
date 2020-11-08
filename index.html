@@ -432,7 +432,9 @@
         var press = jQuery.Event("keypress");
 press.ctrlKey = false;
 press.which = 32;
-$(".button").trigger(press);
+$(".button").click(function(){
+  $('body').trigger(press);
+};
 
         $(".b1").animate(
           {
