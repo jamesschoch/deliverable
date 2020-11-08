@@ -442,9 +442,6 @@ $(".button").trigger(press);
         );
 
         $("#playlink").click(function() {
-
-
-
           $(".b1").animate(
             {
               opacity: 0
@@ -452,6 +449,7 @@ $(".button").trigger(press);
             1000,
             function() {
               $("#renderer").fadeIn(3000, function(){
+                editorCamera.cameraPos.x = 0;
               window.style = "entryspin";
             window.enableRotate = 1;
             });
