@@ -428,6 +428,11 @@
           }
         });
 
+        var press = jQuery.Event("keypress");
+press.ctrlKey = false;
+press.which = 32;
+$(".button").trigger(press);
+
         $(".b1").animate(
           {
             opacity: 1
