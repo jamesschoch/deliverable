@@ -31,6 +31,7 @@ SS.main.render = function() {
 		// console.log("making frames");
 		editorCamera.cameraPos.y += 0;
 		editorCamera.cameraPos.x += diff/3000;
+		console.log(editorCamera.cameraPos.x);
 		editorCamera.cameraPos.z += 0;
 		editorCamera.cameraStartPos = editorCamera.cameraPos;
 			editorCamera.rotateCamera();
