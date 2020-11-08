@@ -175,9 +175,9 @@ SS.util.EditorCamera = function(
 } else if (style == "classicspin"){
 
 		// Classic Spin mechanic
-    this.camera.position.y = -this.cameraPos.y;
-    this.camera.position.x = Math.sin(this.cameraPos.x);
-    this.camera.position.z = Math.sin(this.cameraPos.x);
+    this.camera.position.y = 0;
+    this.camera.position.x = 0;
+    this.camera.position.z = 0;
 // console.log("classicspin");
 
 } else if (style == "entryspin"){
