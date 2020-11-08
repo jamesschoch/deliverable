@@ -350,28 +350,36 @@
         loop: false,
         volume: 1,
         onend: function() {
-          $("#renderer").fadeOut(3000, function() {
-            editorCamera.cameraPos.x = 0;
-            window.enableRotate = 0;
-            window.style = "entryspin";
-            $("#renderer").fadeIn(3000);
-          });
 
-          $(".b4").animate(
-            {
-              opacity: 0
-            },
-            1000
-          );
-          $(".b1").css("opacity", "0");
-          $(".b1").css("display", "inherit");
-          $("#renderer").fadeIn(500);
-          $(".b1").animate(
-            {
-              opacity: 1
-            },
-            1000
-          );
+            
+              sound01.stop();
+              sound02.stop();
+              sound03.stop();
+              sound04.stop();
+              sound05.stop();
+              $("#renderer").fadeOut(3000, function() {
+                editorCamera.cameraPos.x = 0;
+                window.enableRotate = 0;
+                window.style = "classicspin";
+              });
+
+              $(".b4").animate(
+                {
+                  opacity: 0
+                },
+                1000
+              );
+              $(".b1").css("opacity", "0");
+              $(".b1").css("display", "inherit");
+              setTimeout(function(){
+                $(".b1").animate(
+                {
+                  opacity: 1
+                },
+                1000
+              );
+            }, 3000);
+
         },
         onplay: function() {
           $(".trackrow").each(function() {
