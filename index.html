@@ -432,6 +432,11 @@
         );
 
         $("#playlink").click(function() {
+
+          $("#renderer").fadeOut(3000, function() {
+            editorCamera.cameraPos.x = 0;
+            window.style = "entryspin";
+          });
           window.enableRotate = 1;
           $(".b1").animate(
             {
@@ -439,10 +444,7 @@
             },
             1000,
             function() {
-              $("#renderer").fadeOut(3000, function() {
-                editorCamera.cameraPos.x = 0;
-                window.style = "classicspin";
-              });
+
               $(".b1").css("display", "none");
               $(".trackrow01").addClass("playing");
               console.log("Track 1 playing");
