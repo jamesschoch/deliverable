@@ -407,7 +407,6 @@
               editorCamera.cameraPos.x = 0;
               window.enableRotate = 0;
               window.style = "entryspin";
-              $("#renderer").fadeIn(3000);
             });
 
             $(".b4").animate(
@@ -436,7 +435,8 @@
         );
 
         $("#playlink").click(function() {
-
+          $("#renderer").fadeIn(3000);
+            editorCamera.cameraPos.x = 0;
             window.style = "entryspin";
           window.enableRotate = 1;
           $(".b1").animate(
