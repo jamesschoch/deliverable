@@ -454,7 +454,12 @@ $(".button").click(function(){
               window.newy = 0;
               newy = 0;
             window.style = "entryspin";
-            $("#renderer").fadeIn(3000, function(){
+            $("#renderer").animate({
+              opacity: 0
+            }, 1000, function(){
+            window.enableRotate = 1;
+            });
+            $("#renderer").fadeIn(1000, function(){
             window.enableRotate = 1;
             });
 
